@@ -12,37 +12,35 @@
         <nav>
             <ul>
                 <li><a href="#" class="atual">Estádios</a></li>
-                <li><a href="#">Adicionar</a></li>
+                <li><a href="{% url 'adicionarEstadio' %}" class="novoEstadio">Adicionar</a></li>
                 <li><a href="#" class="login">Login</a></li>
             </ul>
         </nav>
     </header>
     <h1>Aqui ficará uma lista com os estádios.</h1>
 
-    <p><a href="{% url 'adicionarEstadio' %}" class="novoEstadio">Adicionar um novo estádio!</a></p>
-
-    <ul>
         <div class="todosEstadios">
         {% for estadio in estadios %}
 
 
             <div class="estadio">
                     <div class="conteudo" onclick="window.location.href = `{% url 'escolherEstadio' estadio.id %}` ">
-                        <li> Cidade: {{ estadio.cidade }}</li>
+                        <ul>
+                            <li> Cidade: {{estadio.cidade}}</li>
 
 
-                        <li title="{{ estadio.nomeEstadio }}"> Nome do Estadio: {{ estadio.nomeEstadio }}</li>
-                        <li>Dono do Campo: {{ estadio.donoCampo }}</li>
-                        <li>Endereço: {{ estadio.enderecoCampo }}</li>
-                        <li>Comprimento: {{ estadio.comprimentoCampo }}m</li>
-                        <li>Largura: {{ estadio.larguraCampo }}m</li>
-                        <li>Preço por hora: R${{ estadio.precoHora }}</li>
+                            <li title="{{estadio.nomeEstadio}}"> Nome do Estadio: {{estadio.nomeEstadio}}</li>
+                            <li>Dono do Campo: {{estadio.donoCampo}}</li>
+                            <li>Endereço: {{estadio.enderecoCampo}}</li>
+                            <li>Comprimento: {{estadio.comprimentoCampo}}m</li>
+                            <li>Largura: {{estadio.larguraCampo}}m</li>
+                            <li>Preço por hora: R${{estadio.precoHora}}</li>
+                        </ul>
                     </div>
             </div>
 
 
         {% endfor %}
         </div>
-    </ul>
 </body>
 </html>

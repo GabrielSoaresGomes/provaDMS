@@ -20,17 +20,24 @@ header a {
   margin: 2px 2px 2px 2px;
   text-decoration: none;
   font-size: 17px;
+  transition: all 0.5s ease-in-out ;
 }
 
 header a:hover {
   background-color: #ddd;
   color: black;
+  transform: rotate(360deg);
 }
 
-header a.atual {
+header .atual {
   background-color: #04AA6D;
   color: white;
 }
+
+header .atual:hover {
+    background-color: #04AA6D;
+}
+
 
 header a.login {
     float: right;
@@ -72,7 +79,7 @@ li {
 }
 
 .estadio{
-    width: 400px;
+    width: 600px;
     min-height: 150px;
 
     margin: 4px 0 4px 0 ;
@@ -98,5 +105,23 @@ div.estadio:hover {
 div.conteudo {
 
 }
+
+form {
+    vertical-align: center;
+    width: 50%;
+    margin: auto;
+}
+
+input, select {
+    width: 100%;
+    display: inline-block;
+
+}
+
+select {
+    width: 101%;
+}
+
+
 
 
