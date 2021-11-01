@@ -13,21 +13,22 @@
     <header>
         <nav>
             <ul>
-                <li><a href="#" class="atual">Estádios</a></li>
+                <li><a href="{% url 'listaEstadios' %}">Estádios</a></li>
                 <li><a href="{% url 'adicionarEstadio' %}" class="novoEstadio" class="atual">Adicionar</a></li>
+                <li><a href="{% url 'estadiosEscolhidos' %}">Estádios Agendados</a></li>
                 <li><a href="#" class="login">Login</a></li>
             </ul>
         </nav>
     </header>
     <h1>Estádio {{ estadio.nomeEstadio }}</h1>
     <h2>O preço por hora é R${{ estadio.precoHora }}</h2>
-    <p id="precoHora">{{estadio.precoHora}}</p>
-    <form>
-        <label for="quantas horas">Insira por quantas horas deseja alugar o estádio: </label>
-        <input type="number">
-        <input type="button" placeholder="Calcular">
-        <p id="retornoPrecoFinal">...</p>
+    <form method="POST">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit">Agendar</button>
     </form>
+
+
     <script>
 
     </script>

@@ -15,15 +15,17 @@
             <ul>
                 <li><a href="{% url 'listaEstadios' %}">Estádios</a></li>
                 <li><a href="{% url 'adicionarEstadio' %}" class="novoEstadio, atual">Adicionar</a></li>
+                <li><a href="{% url 'estadiosEscolhidos' %}">Estádios Agendados</a></li>
                 <li><a href="#" class="login">Login</a></li>
             </ul>
         </nav>
     </header>
     <h1>Adicionando ou Editando Estádios</h1>
+
     <form method="POST">
         {% csrf_token %}
 
-        <span class="form">{{form}}</span>
+        {{form}}
 
 
         <button type="submit">Salvar...</button>

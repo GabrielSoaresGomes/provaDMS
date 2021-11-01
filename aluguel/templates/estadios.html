@@ -1,18 +1,47 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Estádios</title>
+    <link rel="stylesheet" href="{% static '../static/style.css' %}">
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'listaEstadios' %}" class="atual">Estádios</a></li>
+                <li><a href="{% url 'adicionarEstadio' %}" class="novoEstadio">Adicionar</a></li>
+                <li><a href="{% url 'estadiosEscolhidos' %}">Estádios Agendados</a></li>
+                <li><a href="#" class="login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
     <h1>Aqui ficará uma lista com os estádios.</h1>
-    <ul>
+
+        <div class="todosEstadios">
         {% for estadio in estadios %}
 
-                Cidade: <li> {{ estadio.cidade }} </li>
-                Nome do Clube: <li> {{ estadio.nomeClube }}</li>
+
+            <div class="estadio">
+                    <div class="conteudo" onclick="window.location.href = `{% url 'escolherEstadio' estadio.id %}` ">
+                        <ul>
+                            <li> Cidade: {{estadio.cidade}}</li>
+
+
+                            <li>Nome do Estadio: {{estadio.nomeEstadio}}</li>
+                            <li>Dono do Campo: {{estadio.donoCampo}}</li>
+                            <li>Endereço: {{estadio.enderecoCampo}}</li>
+                            <li>Comprimento: {{estadio.comprimentoCampo}}m</li>
+                            <li>Largura: {{estadio.larguraCampo}}m</li>
+                            <li>Preço por hora: R${{estadio.precoHora}}</li>
+                        </ul>
+                    </div>
+            </div>
+
 
         {% endfor %}
-    </ul>
+        </div>
 </body>
 </html>

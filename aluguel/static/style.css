@@ -106,13 +106,18 @@ div.conteudo {
 
 }
 
-form {
-    vertical-align: center;
-    width: 50%;
-    margin: auto;
+.form1 {
+    align-items: center;
 }
 
-input, select {
+form {
+    vertical-align: center;
+    width: 20%;
+    margin: auto;
+    align-items: center;
+}
+
+input, select, button {
     width: 100%;
     display: inline-block;
 
@@ -120,6 +125,10 @@ input, select {
 
 select {
     width: 101%;
+}
+
+.errorlist {
+
 }
 
 
