@@ -36,6 +36,7 @@
                             <li>Comprimento: {{estadio.comprimentoCampo}}m</li>
                             <li>Largura: {{estadio.larguraCampo}}m</li>
                             <li>Preço por hora: R${{estadio.precoHora}}</li>
+                            <li><a href="{% url 'atualizarEstadio' estadio.id %}">Editar/Exluir Estádio</a></li>
                         </ul>
                     </div>
             </div>

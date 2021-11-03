@@ -11,5 +11,5 @@ class EstadioForm(forms.ModelForm):
 class PrecoFinalForm(forms.ModelForm):
     class Meta:
         model = PrecoFinal
-        fields = ["data"]
+        fields = ["nome", "data"]
 

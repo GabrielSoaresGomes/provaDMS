@@ -20,9 +20,18 @@
             </ul>
         </nav>
     </header>
-    <h1>Estádios Agendados</h1>
-    {% for estadio in estadios %}
-        {{ estadio }}
-    {% endfor %}
+    <h1>Estádios Alugados</h1>
+
+    <div class="todosEstadios">
+        {% for estadio in estadios %}
+            <div class="estadio" onclick="window.location.href = `{% url 'deletarEscolhido' estadio.id%}`">
+
+                <span class="agendado">Estádio Alugado: <i class="nomeAgendado">{{ estadio.nome }}</i></span><br>
+                <span class="agendado">Data escolhida: <i class="nomeAgendado">{{ estadio.data }}</i></span>
+
+
+            </div>
+        {% endfor %}
+    </div>
 </body>
 </html>

@@ -131,6 +131,13 @@ select {
 
 }
 
+.agendado {
+    font-size: 1.5em;
+}
+
+.nomeAgendado {
+    font-weight: bolder;
+}
 
 
 

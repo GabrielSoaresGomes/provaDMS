@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import listaEstadios, adicionarEstadio, atualizarEstadio, deletarEstadio, escolherEstadio, estadiosEscolhidos
+from .views import listaEstadios, adicionarEstadio, atualizarEstadio, deletarEstadio, escolherEstadio, estadiosEscolhidos, deletarEscolhido
 
 urlpatterns = [
     path('', listaEstadios, name='listaEstadios'),
@@ -8,6 +8,7 @@ urlpatterns = [
     path('deletar/<int:id>', deletarEstadio, name="deletarEstadio"),
     path('escolher/<int:id>', escolherEstadio, name="escolherEstadio"),
     path('agendados', estadiosEscolhidos, name="estadiosEscolhidos"),
+    path('deletarEscolhido/<int:id>', deletarEscolhido, name="deletarEscolhido"),
     path('members/', include('django.contrib.auth.urls')),
     path('members/', include('members.urls'), name='members'),
 ]

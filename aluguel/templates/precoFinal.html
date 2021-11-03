@@ -24,10 +24,10 @@
     <h2>O preço por hora é R${{ estadio.precoHora }}</h2>
     <form method="POST">
         {% csrf_token %}
+        Insira -> {{ estadio.nomeEstadio }} <br>
         {{form}}
         <button type="submit">Agendar</button>
     </form>
-
 
     <script>
 
