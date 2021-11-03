@@ -1,14 +1,11 @@
 from django.shortcuts import render, redirect
-from .models import Estadio
+from .models import Estadio, PrecoFinal
 from .forms import EstadioForm, PrecoFinalForm
 
 
 def listaEstadios(request):
     estadios = Estadio.objects.all()
     return render(request, "estadios.html", {"estadios": estadios})
-
-
-
 
 
 def atualizarEstadio(request, id):
@@ -49,6 +46,7 @@ def escolherEstadio(request, id):
 
 
 def estadiosEscolhidos(request):
-    estadios = Estadio.objects.all()
+    estadios = PrecoFinal.objects.all()
+    nomeEstadio = Estadio.objects.all()
 
-    return render(request, "estadiosAgendados.html", {"estadios": estadios})
+    return render(request, "estadiosAgendados.html", {"estadios": estadios, "nomeEstadio": nomeEstadio})
