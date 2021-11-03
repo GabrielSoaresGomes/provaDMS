@@ -58,3 +58,9 @@ def deletarEscolhido(request, id):
         estadio.delete()
         return redirect('estadiosEscolhidos')
     return render(request, 'estadioDeleteConfirm.html', {'estadio': estadio})
+
+
+def calcularPrecoFinal(request):
+    precoFinal = PrecoFinal.horas * Estadio.precoHora
+
+    return render(request, 'teste.html', {"precoFinal": precoFinal})

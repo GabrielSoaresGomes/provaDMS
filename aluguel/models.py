@@ -15,8 +15,9 @@ class Estadio(models.Model):
 
 
 class PrecoFinal(models.Model):
-    nome = models.CharField("Por segurança, insira o nome do estádio aqui ", max_length=50)
-    data = models.CharField("Insira a data no formato MM/DD/YYYY ", max_length=10)
+    nome = models.CharField("Por segurança, insira o nome do estádio aqui", max_length=50)
+    data = models.CharField("Insira a data no formato MM/DD/YYYY", max_length=10)
+    horas = models.SmallIntegerField("Insira por quantas horas deseja alugar")
 
     def __str__(self):
         return self.nome
