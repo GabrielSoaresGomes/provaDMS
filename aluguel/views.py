@@ -41,7 +41,7 @@ def escolherEstadio(request, id):
     form = PrecoFinalForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('listaEstadios')
+        return redirect('estadiosEscolhidos')
     return render(request, 'precoFinal.html', {"form": form, "estadio": estadio})
 
 
@@ -57,10 +57,7 @@ def deletarEscolhido(request, id):
     if request.method == "POST":
         estadio.delete()
         return redirect('estadiosEscolhidos')
-    return render(request, 'estadioDeleteConfirm.html', {'estadio': estadio})
+    return render(request, 'estadioAgendadoDelete.html', {'estadio': estadio})
 
 
-def calcularPrecoFinal(request):
-    precoFinal = PrecoFinal.horas * Estadio.precoHora
 
-    return render(request, 'teste.html', {"precoFinal": precoFinal})

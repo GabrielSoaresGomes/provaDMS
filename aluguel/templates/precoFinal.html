@@ -20,18 +20,24 @@
             </ul>
         </nav>
     </header>
-    <h1>Estádio {{ estadio.nomeEstadio }}</h1>
+    <h1>Estádio <i id="nomeEstadio">{{ estadio.nomeEstadio }}</i></h1>
     <h2>O preço por hora é R${{ estadio.precoHora }}</h2>
     <form method="POST">
         {% csrf_token %}
-        Insira -> {{ estadio.nomeEstadio }} <br>
+        <input id= "precoHora" type="text" value="{{ estadio.precoHora }}" readonly class="valoresOcultos">
+        <input type="text" value="{{ estadio.nomeEstadio }}" readonly class="valoresOcultos">
         {{form}}
-        <button type="submit">Agendar</button>
+        <button type="submit" onclick="calcularValorFinal()">Agendar</button>
+
     </form>
-
-        <button type="submit" onclick="window.location.href = `{% url 'calcularPrecoFinal' %} `">Teste</button>
-
     <script>
+        function calcularValorFinal() {
+            var precoHora = document.getElementById("precoHora").value
+            var horas = document.getElementById("id_horas").value
+            var valorFinal = precoHora * horas
+            document.getElementById("id_nome").value = document.getElementById("nomeEstadio").textContent
+            document.getElementById("id_valorFinal").value = valorFinal
+        }
 
     </script>
 </body>

@@ -139,5 +139,8 @@ select {
     font-weight: bolder;
 }
 
+.valoresOcultos, #id_valorFinal, #id_nome{
+    display: none;
+}
 
 
