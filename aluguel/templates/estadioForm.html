@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Adicionar Estádios</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'header.css' %}">
 </head>
 <body>
     <header>
@@ -27,13 +28,13 @@
 
         {{form}}
 
-
         <button type="submit">Salvar...</button>
+        {% if estadio %}
+        <button type="button" onclick="window.location.href=`{% url 'deletarEstadio' estadio.id %}`">Deletar!</button>
+        {% endif %}
     </form>
 
-    {% if estadio %}
-        <a href="{% url 'deletarEstadio' estadio.id %}">Deletar!</a>
-    {% endif %}
+
 
 </body>
 </html>

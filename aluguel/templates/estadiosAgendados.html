@@ -1,40 +1,23 @@
-<!doctype html>
-{% load static %}
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Estadios Agendados</title>
-    <link rel="stylesheet" href="{% static '../static/style.css' %}">
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="{% url 'listaEstadios' %}">Estádios</a></li>
-                <li><a href="{% url 'adicionarEstadio' %}" class="novoEstadio">Adicionar</a></li>
-                <li><a href="#"  class="atual">Estádios Agendados</a></li>
-                <li><a href="#" class="login">Login</a></li>
-            </ul>
-        </nav>
-    </header>
+{% extends 'base.html' %}
+
+{% block title %} Estádios Agendados {% endblock %}
+{% block atual03 %} atual {% endblock %} <!--Para definir qual é o link aberto na navbar-->
+
+{% block content %}
+
     <h1>Estádios Alugados</h1>
+    <h2>Clique em algum para cancelar o agendamento</h2>
 
     <div class="todosEstadios">
         {% for estadio in estadios %}
-            <div class="estadio" onclick="window.location.href = `{% url 'deletarEscolhido' estadio.id%}`">
+            <div class="estadio" onclick="window.location.href = `{% url 'deletarEscolhido' estadio.id %}`">
 
                 <span class="agendado">Estádio Alugado: <i class="nomeAgendado">{{ estadio.nome }}</i></span><br>
                 <span class="agendado">Data escolhida: <i class="nomeAgendado">{{ estadio.data }}</i></span><br>
-                <span class="agendado">Alugado por <i class="nomeAgendado">{{ estadio.horas }}</i> horas.</span>
-                <span class="agendado">O valor final é de  <i class="nomeAgendado">{{ estadio.valorFinal }}</i> reais.</span>
+                <span class="agendado">Alugado por <i class="nomeAgendado">{{ estadio.horas }}</i> horas.</span><br>
+                <span class="agendado">O valor final é de  <i class="nomeAgendado">R${{ estadio.valorFinal }}</i>           reais.</span>
 
-
-
-            </div>
         {% endfor %}
+            </div>
     </div>
-</body>
-</html>
+{% endblock %}

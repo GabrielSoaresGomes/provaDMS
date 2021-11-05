@@ -1,5 +1,6 @@
-<!doctype html>
 {% load static %}
+{% load l10n %}
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -8,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Preço Final</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'header.css' %}">
 </head>
 <body>
     <header>
@@ -22,6 +24,8 @@
     </header>
     <h1>Estádio <i id="nomeEstadio">{{ estadio.nomeEstadio }}</i></h1>
     <h2>O preço por hora é R${{ estadio.precoHora }}</h2>
+
+
     <form method="POST">
         {% csrf_token %}
         <input id= "precoHora" type="text" value="{{ estadio.precoHora }}" readonly class="valoresOcultos">
@@ -30,6 +34,7 @@
         <button type="submit" onclick="calcularValorFinal()">Agendar</button>
 
     </form>
+
     <script>
         function calcularValorFinal() {
             var precoHora = document.getElementById("precoHora").value

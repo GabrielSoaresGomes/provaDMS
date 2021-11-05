@@ -1,0 +1,31 @@
+<!doctype html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static '../static/style.css' %}">
+    <link rel="stylesheet" href="{% static 'header.css' %}">
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'listaEstadios' %}" class="{% block atual01 %} {% endblock %}">Estádios</a></li>
+                <li><a href="{% url 'adicionarEstadio' %}" class="{% block atual02 %} {% endblock %}">Adicionar</a></li>
+                <li><a href="{% url 'estadiosEscolhidos' %}"  class="{% block atual03 %} {% endblock %}">Estádios Agendados</a></li>
+
+                <li><a href="#" class="{% block login %} {% endblock %}">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

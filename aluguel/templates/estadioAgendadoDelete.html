@@ -1,16 +1,20 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Estádio agendado Delete Confirm</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
      <h1>Deletar Estádio</h1>
     <form method="post">
         {% csrf_token %}
-        <h2>Você tem certeza que deseja remover o estádio {{ estadio.nomeEstadio }} do agendamento?</h2>
-        <button type="submit">Confirmar!!!</button>
+        <h2>Você tem certeza que deseja desagendar o estádio {{ estadio.nomeEstadio }} ?</h2>
+        <div class="buttonDelete">
+            <button type="submit">Confirmar!</button>
+            <button type="button" onclick="window.location.href=`{% url 'estadiosEscolhidos' %}`">Cancelar...</button>
+        </div>
     </form>
-        <h3><a href="{% url 'estadiosEscolhidos' %}">Cancelar...</a></h3>
 </body>
 </html>

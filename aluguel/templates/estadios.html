@@ -1,48 +1,29 @@
-<!DOCTYPE html>
-{% load static %}
+{% extends "base.html" %}
 
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Estádios</title>
-    <link rel="stylesheet" href="{% static '../static/style.css' %}">
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="{% url 'listaEstadios' %}" class="atual">Estádios</a></li>
-                <li><a href="{% url 'adicionarEstadio' %}" class="novoEstadio">Adicionar</a></li>
-                <li><a href="{% url 'estadiosEscolhidos' %}">Estádios Agendados</a></li>
-                <li><a href="#" class="login">Login</a></li>
-            </ul>
-        </nav>
-    </header>
-    <h1>Aqui ficará uma lista com os estádios.</h1>
+{% block title %} Lista de Estádios {% endblock %}
+{% block atual01 %} atual {% endblock %} <!--Para definir qual é o link aberto na navbar-->
 
-        <div class="todosEstadios">
+{% block content %}
+
+<h1>Lista de todos estádios cadastrados.</h1>
+    <div class="todosEstadios">
         {% for estadio in estadios %}
-
-
             <div class="estadio">
-                    <div class="conteudo" onclick="window.location.href = `{% url 'escolherEstadio' estadio.id %}` ">
-                        <ul>
-                            <li> Cidade: {{estadio.cidade}}</li>
+                <div class="conteudo" onclick="window.location.href = `{% url 'escolherEstadio' estadio.id %}` ">
+                    <ul>
+                        <li>Cidade: {{estadio.cidade}}</li>
+                        <li>Nome do Estadio: {{estadio.nomeEstadio}}</li>
+                        <li>Dono do Campo: {{estadio.donoCampo}}</li>
+                        <li>Endereço: {{estadio.enderecoCampo}}</li>
+                        <li>Comprimento: {{estadio.comprimentoCampo}}m</li>
+                        <li>Largura: {{estadio.larguraCampo}}m</li>
+                        <li>Preço por hora: R${{estadio.precoHora}}</li>
+                        <li><a href="{% url 'atualizarEstadio' estadio.id %}">Editar/Exluir Estádio</a></li>
+                    </ul>
+                </div> <!--class conteudo-->
+            </div> <!--class estadio-->
+         {% endfor %}
+    </div> <!--class todosEstadios-->
 
 
-                            <li>Nome do Estadio: {{estadio.nomeEstadio}}</li>
-                            <li>Dono do Campo: {{estadio.donoCampo}}</li>
-                            <li>Endereço: {{estadio.enderecoCampo}}</li>
-                            <li>Comprimento: {{estadio.comprimentoCampo}}m</li>
-                            <li>Largura: {{estadio.larguraCampo}}m</li>
-                            <li>Preço por hora: R${{estadio.precoHora}}</li>
-                            <li><a href="{% url 'atualizarEstadio' estadio.id %}">Editar/Exluir Estádio</a></li>
-                        </ul>
-                    </div>
-            </div>
-
-
-        {% endfor %}
-        </div>
-</body>
-</html>
+{% endblock %}
