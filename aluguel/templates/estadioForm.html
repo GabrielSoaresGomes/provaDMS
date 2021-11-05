@@ -1,27 +1,10 @@
-<!doctype html>
-{% load static %}
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Adicionar Estádios</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <link rel="stylesheet" href="{% static 'header.css' %}">
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="{% url 'listaEstadios' %}">Estádios</a></li>
-                <li><a href="{% url 'adicionarEstadio' %}" class="novoEstadio, atual">Adicionar</a></li>
-                <li><a href="{% url 'estadiosEscolhidos' %}">Estádios Agendados</a></li>
-                <li><a href="#" class="login">Login</a></li>
-            </ul>
-        </nav>
-    </header>
-    <h1>Adicionando ou Editando Estádios</h1>
+{% extends 'base.html' %}
+
+{% block title %} Formulário dos Estádios {% endblock %}
+{% block atual02 %} atual {% endblock %} <!--Para definir qual é o link aberto na navbar-->
+
+{% block content %}
+<h1>Adicionando ou Editando Estádios</h1>
 
     <form method="POST">
         {% csrf_token %}
@@ -33,8 +16,4 @@
         <button type="button" onclick="window.location.href=`{% url 'deletarEstadio' estadio.id %}`">Deletar!</button>
         {% endif %}
     </form>
-
-
-
-</body>
-</html>
+{% endblock %}

@@ -11,14 +11,15 @@
             <div class="estadio">
                 <div class="conteudo" onclick="window.location.href = `{% url 'escolherEstadio' estadio.id %}` ">
                     <ul>
-                        <li>Cidade: {{estadio.cidade}}</li>
-                        <li>Nome do Estadio: {{estadio.nomeEstadio}}</li>
-                        <li>Dono do Campo: {{estadio.donoCampo}}</li>
-                        <li>Endereço: {{estadio.enderecoCampo}}</li>
-                        <li>Comprimento: {{estadio.comprimentoCampo}}m</li>
-                        <li>Largura: {{estadio.larguraCampo}}m</li>
-                        <li>Preço por hora: R${{estadio.precoHora}}</li>
-                        <li><a href="{% url 'atualizarEstadio' estadio.id %}">Editar/Exluir Estádio</a></li>
+                        <li>Cidade: <i class="negrito">{{estadio.cidade}}</i></li>
+                        <li>Nome do Estadio: <i class="negrito">{{estadio.nomeEstadio}}</i></li>
+                        <li>Dono do Campo: <i class="negrito">{{estadio.donoCampo}}</i></li>
+                        <li>Endereço: <i class="negrito">{{estadio.enderecoCampo}}</i></li>
+                        <li>Comprimento: <i class="negrito">{{estadio.comprimentoCampo}}m</i></li>
+                        <li>Largura: <i class="negrito">{{estadio.larguraCampo}}m</i></li>
+                        <li>Preço por hora: <i class="negrito">R${{estadio.precoHora}}</i></li>
+                        <li><a href="{% url 'atualizarEstadio' estadio.id %}"><i class="negrito">Editar/Exluir
+                            Estádio</i></a></li>
                     </ul>
                 </div> <!--class conteudo-->
             </div> <!--class estadio-->

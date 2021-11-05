@@ -12,10 +12,10 @@
         {% for estadio in estadios %}
             <div class="estadio" onclick="window.location.href = `{% url 'deletarEscolhido' estadio.id %}`">
 
-                <span class="agendado">Estádio Alugado: <i class="nomeAgendado">{{ estadio.nome }}</i></span><br>
-                <span class="agendado">Data escolhida: <i class="nomeAgendado">{{ estadio.data }}</i></span><br>
-                <span class="agendado">Alugado por <i class="nomeAgendado">{{ estadio.horas }}</i> horas.</span><br>
-                <span class="agendado">O valor final é de  <i class="nomeAgendado">R${{ estadio.valorFinal }}</i>           reais.</span>
+                <span class="agendado">Estádio Alugado: <i class="negrito">{{ estadio.nome }}</i></span><br>
+                <span class="agendado">Data escolhida: <i class="negrito">{{ estadio.data }}</i></span><br>
+                <span class="agendado">Alugado por <i class="negrito">{{ estadio.horas }}</i> horas.</span><br>
+                <span class="agendado">O valor final é de  <i class="negrito">R${{ estadio.valorFinal }}</i>           reais.</span>
 
         {% endfor %}
             </div>
