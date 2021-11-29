@@ -33,13 +33,15 @@ def estadiosEscolhidos(request):
 
 
 def atualizarEstadio(request, id):
+    editar = False
     estadio = Estadio.objects.get(id=id)
     form = EstadioForm(request.POST or None, instance=estadio)
 
     if form.is_valid():
         form.save()
         return redirect('listaEstadios')
-    return render(request, "estadioForm.html", {"form": form, "estadio": estadio})
+    editar = True
+    return render(request, "estadioForm.html", {"form": form, "estadio": estadio, "editar": editar, })
 
 
 def atualizarEscolhido(request, id):
@@ -49,7 +51,7 @@ def atualizarEscolhido(request, id):
     if form.is_valid():
         form.save()
         return redirect('estadiosEscolhidos')
-    return render(request, "precoFinal.html", {"form": form, "alugado": alugado})
+    return render(request, "precoFinal.html", {"form": form, "alugado": alugado, })
 
 
 def deletarEstadio(request, id):

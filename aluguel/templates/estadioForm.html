@@ -4,8 +4,11 @@
 {% block atual02 %} atual {% endblock %} <!--Para definir qual é o link aberto na navbar-->
 
 {% block content %}
-<h1>Adicionando ou Editando Estádios</h1>
-
+{% if editar == True %}
+<h1>Editando Estádios</h1>
+{% else %}
+<h1>Adicionando Estádios</h1>
+{% endif %}
     <form method="POST">
         {% csrf_token %}
 
@@ -13,7 +16,9 @@
 
         <button type="submit">Salvar...</button>
         {% if estadio %}
-        <button type="button" onclick="window.location.href=`{% url 'deletarEstadio' estadio.id %}`">Deletar!</button>
+        <div class="botaoDelete">
+            <img src="../static/img/excluir.png" onclick="window.location.href=`{% url 'deletarEstadio' estadio.id %}`" alt="Icone para deletar">
+        </div>
         {% endif %}
     </form>
 {% endblock %}

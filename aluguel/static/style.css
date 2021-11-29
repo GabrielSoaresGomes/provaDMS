@@ -1,8 +1,7 @@
 body {
     margin: 0;
     background-color: #bbbbbb;
-    font-family: Arial;
-
+    font-family: Arial, serif;
 }
 
 h1 {
@@ -89,6 +88,10 @@ select {
     width: 101%;
 }
 
+.center {
+    text-align: center;
+}
+
 .agendado {
     font-size: 1.5em;
 }
@@ -109,3 +112,24 @@ select {
     margin: 4px;
 }
 
+.botaoEdit {
+    text-align: center;
+}
+
+.botaoDelete {
+    margin-top: 2px;
+    text-align: center;
+}
+
+.botaoDelete:hover {
+    cursor: pointer;
+}
+
+.cancelButton {
+    color: black;
+    text-decoration: none;
+}
+
+.cancelButton:hover {
+    color: blue;
+}

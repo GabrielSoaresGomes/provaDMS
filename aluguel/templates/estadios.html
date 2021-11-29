@@ -18,8 +18,9 @@
                         <li>Comprimento: <i class="negrito">{{estadio.comprimentoCampo}}m</i></li>
                         <li>Largura: <i class="negrito">{{estadio.larguraCampo}}m</i></li>
                         <li>Preço por hora: <i class="negrito">R${{estadio.precoHora}}</i></li>
-                        <li><a href="{% url 'atualizarEstadio' estadio.id %}"><i class="negrito">Editar/Exluir
-                            Estádio</i></a></li>
+                        <div class="botaoEdit">
+                            <li><a href="{% url 'atualizarEstadio' estadio.id %}"><img src="../static/img/edit.png" alt="Imagem para editar."></a></li>
+                        </div>
                     </ul>
                 </div> <!--class conteudo-->
             </div> <!--class estadio-->

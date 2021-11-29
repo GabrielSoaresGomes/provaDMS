@@ -1,4 +1,4 @@
-#!/home/gabriel/Documentos/programacao/django/processo_seletivo/venv/bin/python3
+#!/home/gabriel/Documentos/GitHub/PuppetTheDragon/programacao/django/provasDMS/provaDMS/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
